@@ -9,7 +9,6 @@ public class MovementScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 50);
     }
 
     // Update is called once per frame
@@ -34,7 +33,7 @@ public class MovementScript : MonoBehaviour
             gameObject.transform.position = new Vector3(0, 0, -1) + playerCurrentPosition;
         }
 
-        //adjust position to fit grid
+        // adjust position to fit grid
         var playerNewPosition = gameObject.transform.position;
 
         if (playerNewPosition.x > 1) {
@@ -53,7 +52,7 @@ public class MovementScript : MonoBehaviour
 
         // make camera follow player
         var cameraPosition = Camera.main.transform.position;
-        Camera.main.transform.position = new Vector3(gameObject.transform.position.x, cameraPosition.y, gameObject.transform.position.z - 2);
+        Camera.main.transform.position = new Vector3(gameObject.transform.position.x, cameraPosition.y, gameObject.transform.position.z);
 
 
     }
