@@ -22,7 +22,6 @@ public class PlayerBulletDealDamage : MonoBehaviour
         GameObject enemy = GameObject.Find("Enemy");
 
         if (!hit && enemy && this.GetComponent<Collider>().bounds.Intersects(enemy.GetComponent<Collider>().bounds)) {
-            Debug.Log("Hit the enemy");
 
 
             // deal damage to the enemy

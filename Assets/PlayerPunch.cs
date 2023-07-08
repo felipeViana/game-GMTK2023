@@ -19,12 +19,12 @@ public class PlayerPunch : MonoBehaviour
     void Update()
     {
         GameObject leftArm = GameObject.Find("LeftArm/Arm");
-        var defaultRotation = leftArm.transform.localRotation;
+        // get current rotation
+        Vector3 defaultRotation = new Vector3(331.454742f, 309.646851f, 29.9705296f);
 
         if (!punching && Input.GetKeyDown(KeyCode.Space))
         {
             punching = true;
-            Debug.Log("Punching");
 
 
 
@@ -34,10 +34,13 @@ public class PlayerPunch : MonoBehaviour
 
             // check if it hits the enemy
             GameObject enemy = GameObject.Find("Enemy");
+            GameObject hand = GameObject.Find("LeftArm/Arm/ForeArm/Hand");
 
-            if (enemy && this.GetComponent<Collider>().bounds.Intersects(enemy.GetComponent<Collider>().bounds))
+            if (enemy && hand.GetComponent<Collider>().bounds.Intersects(enemy.GetComponent<Collider>().bounds))
             {
                 Debug.Log("Hit the enemy");
+
+                enemy.GetComponent<EnemyLife>().LoseLife(punchDamage);
             }
 
 
@@ -53,8 +56,7 @@ public class PlayerPunch : MonoBehaviour
                 timePunching = 0;
 
                 // make arm go back
-                leftArm.transform.localRotation = defaultRotation;
-                Debug.Log("Punching done");
+                leftArm.transform.localRotation = Quaternion.Euler(defaultRotation);
             }
         }
 
