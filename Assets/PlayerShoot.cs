@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float bulletSpeed = 15;
+    [SerializeField] private float bulletLifeTime = 2f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,17 +20,42 @@ public class PlayerShoot : MonoBehaviour
     {
         // check if mouse is pressed
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("shoot");
 
-            // shoot a raycast
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit)) {
-                if (hit.collider.gameObject.tag == "Enemy") {
-                    Debug.Log("hit enemy");
-                    hit.collider.gameObject.GetComponent<EnemyLife>().LoseLife(1);
-                }
-            }
+            // shoot forward
+            // find BulletPoint object
+            GameObject bulletPoint = GameObject.Find("BulletPoint");
+
+            // get the position of the BulletPoint
+            Vector3 bulletPos = bulletPoint.transform.position;
+
+            // go straigth on z axis
+            Vector3 shootDirection = new Vector3(0, 0, 1);
+
+            // create the bullet
+            GameObject bullet = Instantiate(bulletPrefab, bulletPos, Quaternion.identity);
+
+            // set the bullet speed
+            bullet.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
+
+            // destroy the bullet after some time
+            Destroy(bullet, bulletLifeTime);
+
+
+
+            // check if the bullet hits the enemy
+            // if (bullet.GetComponent<Collider>().bounds.Intersects(enemy.GetComponent<Collider>().bounds)) {
+            //     Debug.Log("Hit the enemy");
+            //     // destroy the enemy
+            //     Destroy(enemy);
+            // }
+
+
+            // set the bullet damage
+            // bullet.GetComponent<Bullet>().damage = bulletDamage;
+
+
+
+
         }
 
     }
