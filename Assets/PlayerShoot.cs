@@ -42,19 +42,6 @@ public class PlayerShoot : MonoBehaviour
 
 
 
-            // check if the bullet hits the enemy
-            // if (bullet.GetComponent<Collider>().bounds.Intersects(enemy.GetComponent<Collider>().bounds)) {
-            //     Debug.Log("Hit the enemy");
-            //     // destroy the enemy
-            //     Destroy(enemy);
-            // }
-
-
-            // set the bullet damage
-            // bullet.GetComponent<Bullet>().damage = bulletDamage;
-
-
-
 
         }
 
