@@ -90,6 +90,20 @@ public class EnemyMovement : MonoBehaviour
                 justAttacked = true;
                 // attack
                 Debug.Log("enemy attack");
+
+                // change to punch quad
+
+                var idle = GameObject.Find("Enemy/Idle");
+
+
+                // disable mesh renderer of idle
+                idle.GetComponent<MeshRenderer>().enabled = false;
+
+                var punch = GameObject.Find("Enemy/Punch");
+                punch.GetComponent<MeshRenderer>().enabled = true;
+
+                // gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                // gameObject.transform.GetChild(1).gameObject.SetActive(true);
             }
         }
 
