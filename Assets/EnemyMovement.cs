@@ -15,13 +15,12 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log((int)Direction.Down);
 
     }
 
     bool isPositionValid(Vector3 position)
     {
-        if (position.x > 1 || position.x < -1 || position.z > 3 || position.z < 2)
+        if (position.x > 1 || position.x < -1 || position.z > 3.25 || position.z < 2.25)
         {
             return false;
         }
@@ -67,14 +66,22 @@ public class EnemyMovement : MonoBehaviour
                     newX--;
                 }
 
-
-                // Debug.Log(newX + " " + newZ);
-
                 newPosition = new Vector3(newX, 0.5f, newZ);
 
             } while(!isPositionValid(newPosition));
 
+            Debug.Log("moving to " + newPosition);
+
             gameObject.transform.position = newPosition;
+        }
+        else if (justMoved)
+        {
+            movementTime -= Time.deltaTime;
+            if (movementTime <= 0)
+            {
+                justMoved = false;
+                movementTime = 1f;
+            }
         }
         else
         {
@@ -88,33 +95,25 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-        if (justMoved)
-        {
-            movementTime -= Time.deltaTime;
-            if (movementTime <= 0)
-            {
-                justMoved = false;
-                movementTime = 1f;
-            }
-        }
 
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            gameObject.transform.position = new Vector3(-1, 0, 0) + enemyCurrentPosition;
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            gameObject.transform.position = new Vector3(1, 0, 0) + enemyCurrentPosition;
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            gameObject.transform.position = new Vector3(0, 0, 1) + enemyCurrentPosition;
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            gameObject.transform.position = new Vector3(0, 0, -1) + enemyCurrentPosition;
-        }
+        // // debug movement
+        // if (Input.GetKeyDown(KeyCode.J))
+        // {
+        //     gameObject.transform.position = new Vector3(-1, 0, 0) + enemyCurrentPosition;
+        // }
+        // if (Input.GetKeyDown(KeyCode.L))
+        // {
+        //     gameObject.transform.position = new Vector3(1, 0, 0) + enemyCurrentPosition;
+        // }
+        // if (Input.GetKeyDown(KeyCode.I))
+        // {
+        //     gameObject.transform.position = new Vector3(0, 0, 1) + enemyCurrentPosition;
+        // }
+        // if (Input.GetKeyDown(KeyCode.K))
+        // {
+        //     gameObject.transform.position = new Vector3(0, 0, -1) + enemyCurrentPosition;
+        // }
 
 
         // adjust position to fit grid
