@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class EnemyMovement : MonoBehaviour
     bool justMoved = false;
     int movementsDone = 0;
     bool justAttacked = false;
+    bool punching = false;
+    float timeAttacking = 1f;
+    bool hit = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (movementsDone < movementsBeforeAttack && !justMoved)
         {
+            hit = false;
             justMoved = true;
             justAttacked = false;
             movementsDone++;
@@ -44,16 +49,16 @@ public class EnemyMovement : MonoBehaviour
             Vector3 newPosition = new Vector3(0, 0, 0);
             do
             {
-                int randomDirection = Random.Range(0, 4);
+                int randomDirection = UnityEngine.Random.Range(0, 4);
 
                 float newX = enemyCurrentPosition.x;
                 float newZ = enemyCurrentPosition.z;
 
-                if (randomDirection == (int)Direction.Up)
-                {
-                    newZ++;
-                }
-                else if (randomDirection == (int)Direction.Right)
+                // if (randomDirection == (int)Direction.Up)
+                // {
+                //     newZ++;
+                // }
+                if (randomDirection == (int)Direction.Right)
                 {
                     newX++;
                 }
@@ -75,7 +80,7 @@ public class EnemyMovement : MonoBehaviour
             // rotate randomly
             var idle = GameObject.Find("Enemy/Idle");
             // set idle rotation
-            idle.transform.rotation = Quaternion.Euler(-0.02175789f, 0, Random.Range(-15, 15));
+            idle.transform.rotation = Quaternion.Euler(-0.02175789f, 0, UnityEngine.Random.Range(-15, 15));
 
 
         }
@@ -95,22 +100,53 @@ public class EnemyMovement : MonoBehaviour
             if (!justAttacked)
             {
                 justAttacked = true;
-                // attack
-                Debug.Log("enemy attack");
-
-                // change to punch quad
+                punching = true;
 
                 var idle = GameObject.Find("Enemy/Idle");
+                idle.GetComponent<MeshRenderer>().enabled = false;
+
+                var punch = GameObject.Find("Enemy/Punch");
+                punch.GetComponent<MeshRenderer>().enabled = true;
 
 
-                // disable mesh renderer of idle
-                // idle.GetComponent<MeshRenderer>().enabled = false;
 
-                // var punch = GameObject.Find("Enemy/Punch");
-                // punch.GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
 
-                // gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                // gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        // time attacking
+        if (punching)
+        {
+            if (!hit)
+            {
+                hit = true;
+                // hit player
+                var player = GameObject.Find("Player");
+                var playerPosition = player.transform.position;
+                var enemyPosition = gameObject.transform.position;
+
+                Debug.Log("Player position: " + playerPosition.x + ", " + playerPosition.z);
+                Debug.Log("Enemy position: " + enemyPosition.x + ", " + enemyPosition.z);
+                if (Math.Abs(playerPosition.x - enemyPosition.x) < 0.5 && enemyPosition.z - playerPosition.z < 1.5)
+                {
+                    // player hit
+                    var playerHealth = player.GetComponent<PlayerHealth>();
+                    playerHealth.LoseLife(20);
+                }
+            }
+
+            timeAttacking -= Time.deltaTime;
+            if (timeAttacking <= 0)
+            {
+                punching = false;
+                timeAttacking = 1f;
+
+                // change to idle quad
+
+                var idle = GameObject.Find("Enemy/Idle");
+                idle.GetComponent<MeshRenderer>().enabled = true;
+
+                var punch = GameObject.Find("Enemy/Punch");
+                punch.GetComponent<MeshRenderer>().enabled = false;
             }
         }
 
