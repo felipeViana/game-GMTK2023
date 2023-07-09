@@ -4,10 +4,29 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    enum Direction { Up, Right, Down, Left };
+
+    [SerializeField] int movementsBeforeAttack = 5;
+    [SerializeField] float movementTime = 1f;
+    bool justMoved = false;
+    int movementsDone = 0;
+    bool justAttacked = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log((int)Direction.Down);
 
+    }
+
+    bool isPositionValid(Vector3 position)
+    {
+        if (position.x > 1 || position.x < -1 || position.z > 3 || position.z < 2)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     // Update is called once per frame
@@ -15,6 +34,70 @@ public class EnemyMovement : MonoBehaviour
     {
         // moves like player
         var enemyCurrentPosition = gameObject.transform.position;
+
+        if (movementsDone < movementsBeforeAttack && !justMoved)
+        {
+            justMoved = true;
+            justAttacked = false;
+            movementsDone++;
+
+            // moves randomly inside the grid
+            Vector3 newPosition = new Vector3(0, 0, 0);
+            do
+            {
+                int randomDirection = Random.Range(0, 4);
+
+                float newX = enemyCurrentPosition.x;
+                float newZ = enemyCurrentPosition.z;
+
+                if (randomDirection == (int)Direction.Up)
+                {
+                    newZ++;
+                }
+                else if (randomDirection == (int)Direction.Right)
+                {
+                    newX++;
+                }
+                else if (randomDirection == (int)Direction.Down)
+                {
+                    newZ--;
+                }
+                else if (randomDirection == (int)Direction.Left)
+                {
+                    newX--;
+                }
+
+
+                // Debug.Log(newX + " " + newZ);
+
+                newPosition = new Vector3(newX, 0.5f, newZ);
+
+            } while(!isPositionValid(newPosition));
+
+            gameObject.transform.position = newPosition;
+        }
+        else
+        {
+            movementsDone = 0;
+
+            if (!justAttacked)
+            {
+                justAttacked = true;
+                // attack
+                Debug.Log("enemy attack");
+            }
+        }
+
+        if (justMoved)
+        {
+            movementTime -= Time.deltaTime;
+            if (movementTime <= 0)
+            {
+                justMoved = false;
+                movementTime = 1f;
+            }
+        }
+
 
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -41,10 +124,10 @@ public class EnemyMovement : MonoBehaviour
             gameObject.transform.position = new Vector3(1, 0, enemyNewPosition.z);
         } else if (enemyNewPosition.x < -1) {
             gameObject.transform.position = new Vector3(-1, 0, enemyNewPosition.z);
-        } else if (enemyNewPosition.z > 3.5) {
-            gameObject.transform.position = new Vector3(enemyNewPosition.x, 0, 3.5f);
-        } else if (enemyNewPosition.z < 2.5) {
-            gameObject.transform.position = new Vector3(enemyNewPosition.x, 0, 2.5f);
+        } else if (enemyNewPosition.z > 4) {
+            gameObject.transform.position = new Vector3(enemyNewPosition.x, 0, 3f);
+        } else if (enemyNewPosition.z < 2) {
+            gameObject.transform.position = new Vector3(enemyNewPosition.x, 0, 2f);
         }
 
         // force y to be 0.5
