@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
 
     bool isPositionValid(Vector3 position)
     {
-        if (position.x > 1 || position.x < -1 || position.z > 3.25 || position.z < 2.25)
+        if (position.x > 1.1 || position.x < -1.1 || position.z > 3.3 || position.z < 2.1)
         {
             return false;
         }
@@ -69,8 +69,6 @@ public class EnemyMovement : MonoBehaviour
                 newPosition = new Vector3(newX, 0.5f, newZ);
 
             } while(!isPositionValid(newPosition));
-
-            Debug.Log("moving to " + newPosition);
 
             gameObject.transform.position = newPosition;
         }
