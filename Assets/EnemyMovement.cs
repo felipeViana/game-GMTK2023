@@ -71,6 +71,13 @@ public class EnemyMovement : MonoBehaviour
             } while(!isPositionValid(newPosition));
 
             gameObject.transform.position = newPosition;
+
+            // rotate randomly
+            var idle = GameObject.Find("Enemy/Idle");
+            // set idle rotation
+            idle.transform.rotation = Quaternion.Euler(-0.02175789f, 0, Random.Range(-15, 15));
+
+
         }
         else if (justMoved)
         {
@@ -97,10 +104,10 @@ public class EnemyMovement : MonoBehaviour
 
 
                 // disable mesh renderer of idle
-                idle.GetComponent<MeshRenderer>().enabled = false;
+                // idle.GetComponent<MeshRenderer>().enabled = false;
 
-                var punch = GameObject.Find("Enemy/Punch");
-                punch.GetComponent<MeshRenderer>().enabled = true;
+                // var punch = GameObject.Find("Enemy/Punch");
+                // punch.GetComponent<MeshRenderer>().enabled = true;
 
                 // gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 // gameObject.transform.GetChild(1).gameObject.SetActive(true);
