@@ -18,6 +18,8 @@ public class EnemyMovement : MonoBehaviour
     float timeAttacking = 1f;
     bool hit = false;
 
+    bool animateToRight = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,9 +85,16 @@ public class EnemyMovement : MonoBehaviour
             // rotate randomly
             var idle = GameObject.Find("Enemy/Idle");
             // set idle rotation
-            idle.transform.rotation = Quaternion.Euler(-0.02175789f, 0, UnityEngine.Random.Range(-15, 15));
 
-
+            if (animateToRight)
+            {
+                idle.transform.rotation = Quaternion.Euler(0, 0, 15);
+            }
+            else
+            {
+                idle.transform.rotation = Quaternion.Euler(0, 0, -15);
+            }
+            animateToRight = !animateToRight;
         }
         else if (justMoved)
         {
@@ -110,9 +119,6 @@ public class EnemyMovement : MonoBehaviour
 
                 var punch = GameObject.Find("Enemy/Punch");
                 punch.GetComponent<MeshRenderer>().enabled = true;
-
-
-
             }
         }
 
