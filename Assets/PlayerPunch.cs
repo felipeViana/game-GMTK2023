@@ -38,8 +38,6 @@ public class PlayerPunch : MonoBehaviour
 
             if (enemy && hand.GetComponent<Collider>().bounds.Intersects(enemy.GetComponent<Collider>().bounds))
             {
-                Debug.Log("Hit the enemy");
-
                 enemy.GetComponent<EnemyLife>().LoseLife(punchDamage);
             }
 

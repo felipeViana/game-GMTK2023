@@ -6,8 +6,8 @@ using TMPro;
 public class EnemyLife : MonoBehaviour
 {
     [SerializeField] private int life = 100;
-    GameObject enemyLife;
-    // Start is called before the first frame update
+    private GameObject enemyLife;
+
     void Start()
     {
         enemyLife = GameObject.Find("EnemyLife");

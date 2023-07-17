@@ -8,7 +8,8 @@ public class EnemyMovement : MonoBehaviour
     enum Direction { Up, Right, Down, Left };
 
     [SerializeField] int movementsBeforeAttack = 5;
-    [SerializeField] float movementTime = 1f;
+    [SerializeField] float movementTime = 0.2f;
+    [SerializeField] int punchDamage = 20;
     bool justMoved = false;
     int movementsDone = 0;
     bool justAttacked = false;
@@ -124,13 +125,11 @@ public class EnemyMovement : MonoBehaviour
                 var playerPosition = player.transform.position;
                 var enemyPosition = gameObject.transform.position;
 
-                Debug.Log("Player position: " + playerPosition.x + ", " + playerPosition.z);
-                Debug.Log("Enemy position: " + enemyPosition.x + ", " + enemyPosition.z);
                 if (Math.Abs(playerPosition.x - enemyPosition.x) < 0.5 && enemyPosition.z - playerPosition.z < 1.5)
                 {
                     // player hit
                     var playerHealth = player.GetComponent<PlayerHealth>();
-                    playerHealth.LoseLife(20);
+                    playerHealth.LoseLife(punchDamage);
                 }
             }
 
