@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadingScreen.unity
     guid: cec820549a97fb24a9166918ae9edb74
+  - enabled: 1
+    path: Assets/Scenes/GettingStronger.unity
+    guid: 05783b334fbd2de419de24287c0820ea
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
