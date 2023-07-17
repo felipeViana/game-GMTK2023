@@ -20,5 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SoundMenu.unity
     guid: 0b30c2f6fae06fb4cb18d1a5a7753dd1
+  - enabled: 1
+    path: Assets/Scenes/About.unity
+    guid: b9d7b4065849df641bebdc4036a02cf8
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 9f4edeb71f39d884e829d984af734544
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

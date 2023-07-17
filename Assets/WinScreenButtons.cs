@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GraphicsMenuButtons : MonoBehaviour
+public class WinScreenButtons : MonoBehaviour
 {
-    public void OnBackButtonClick()
+    public void OnPlayAgainButtonClick()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
 
     }
 
-    public void OnToggleFullScreenButtonClick()
+    public void OnQuitButtonClick()
     {
-        Screen.fullScreen = !Screen.fullScreen;
+        Debug.Log("Quit");
+        Application.Quit();
     }
 }

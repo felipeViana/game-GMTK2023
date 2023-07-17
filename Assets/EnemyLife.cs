@@ -23,6 +23,9 @@ public class EnemyLife : MonoBehaviour
         // die if life < 0
         if (life <= 0) {
             Destroy(gameObject);
+
+            // go to win screen
+            UnityEngine.SceneManagement.SceneManager.LoadScene("WinScreen");
         }
 
     }

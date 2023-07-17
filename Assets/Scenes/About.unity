@@ -311,7 +311,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 562657229}
-        m_TargetAssemblyTypeName: GraphicsMenuButtons, Assembly-CSharp
+        m_TargetAssemblyTypeName: AboutMenuButtons, Assembly-CSharp
         m_MethodName: OnBackButtonClick
         m_Mode: 1
         m_Arguments:
@@ -542,7 +542,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 562657226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad76b68d75d609240aeae6d7f4c29068, type: 3}
+  m_Script: {fileID: 11500000, guid: 929a6d44828930d4f843f9e55dd85086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &588294787
