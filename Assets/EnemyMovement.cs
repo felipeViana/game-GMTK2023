@@ -127,15 +127,13 @@ public class EnemyMovement : MonoBehaviour
         {
             if (!hit)
             {
-                hit = true;
-                // hit player
                 var player = GameObject.Find("Player");
                 var playerPosition = player.transform.position;
                 var enemyPosition = gameObject.transform.position;
 
                 if (Math.Abs(playerPosition.x - enemyPosition.x) < 0.5 && enemyPosition.z - playerPosition.z < 1.5)
                 {
-                    // player hit
+                    hit = true;
                     var playerHealth = player.GetComponent<PlayerHealth>();
                     playerHealth.LoseLife(punchDamage);
                 }
@@ -148,7 +146,6 @@ public class EnemyMovement : MonoBehaviour
                 timeAttacking = 1f;
 
                 // change to idle quad
-
                 var idle = GameObject.Find("Enemy/Idle");
                 idle.GetComponent<MeshRenderer>().enabled = true;
 
