@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] int movementsBeforeAttack = 5;
     [SerializeField] float movementTime = 0.2f;
+    private float movementTimeLeft;
     [SerializeField] int punchDamage = 20;
     bool justMoved = false;
     int movementsDone = 0;
@@ -20,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        movementTimeLeft = movementTime;
 
     }
 
@@ -87,11 +89,11 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (justMoved)
         {
-            movementTime -= Time.deltaTime;
-            if (movementTime <= 0)
+            movementTimeLeft -= Time.deltaTime;
+            if (movementTimeLeft <= 0)
             {
                 justMoved = false;
-                movementTime = 1f;
+                movementTimeLeft = movementTime;
             }
         }
         else
