@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementsBeforeAttack: 5
-  movementTime: 0.2
+  movementTime: 0.5
   punchDamage: 100
 --- !u!114 &663995614
 MonoBehaviour:

@@ -25,8 +25,8 @@ public class PlayerHealth : MonoBehaviour
         if (life <= 0) {
             Destroy(gameObject);
 
-            // go to scene 1
-            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+            // go to Upgrades scene
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Upgrade");
         }
 
     }

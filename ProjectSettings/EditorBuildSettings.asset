@@ -6,10 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: b737c90a094f4f04b8cbaf244ccd05e5
+  - enabled: 1
     path: Assets/Scenes/Combat.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Upgrade.unity
     guid: 2e896f1ede66aeb4c8037e30a512ab20
+  - enabled: 1
+    path: Assets/Scenes/GraphicsMenu.unity
+    guid: 32fa365ab7f3cad41b4e3f35cd54ecd4
+  - enabled: 1
+    path: Assets/Scenes/SoundMenu.unity
+    guid: 0b30c2f6fae06fb4cb18d1a5a7753dd1
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

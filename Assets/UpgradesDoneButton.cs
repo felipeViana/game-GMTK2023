@@ -7,7 +7,7 @@ public class UpgradesDoneButton : MonoBehaviour
     // Start is called before the first frame update
     public void OnClick()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Combat");
 
     }
 }
