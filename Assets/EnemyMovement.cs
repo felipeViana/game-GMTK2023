@@ -43,7 +43,7 @@ public class EnemyMovement : MonoBehaviour
         // moves like player
         var enemyCurrentPosition = gameObject.transform.position;
 
-        if (movementsDone < movementsBeforeAttack && !justMoved)
+        if (movementsDone < movementsBeforeAttack && !justMoved && !punching)
         {
             hit = false;
             justMoved = true;
