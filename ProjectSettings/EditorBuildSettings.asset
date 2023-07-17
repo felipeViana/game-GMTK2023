@@ -26,5 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 9f4edeb71f39d884e829d984af734544
+  - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: cec820549a97fb24a9166918ae9edb74
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

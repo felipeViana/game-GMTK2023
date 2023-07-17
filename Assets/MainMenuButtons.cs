@@ -6,7 +6,7 @@ public class MainMenuButtons : MonoBehaviour
 {
     public void OnStartButtonClick()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Combat");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen");
     }
 
     public void OnSoundButtonClick()
