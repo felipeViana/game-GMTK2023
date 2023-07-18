@@ -4,13 +4,31 @@ using UnityEngine;
 
 public class MainMenuButtons : MonoBehaviour
 {
-    [SerializeField] int PlayerLife = 173;
+    [SerializeField] int PlayerLife = 200;
+    // speed
+    // cooldown
+    // shootAmount
+
+    void Start()
+    {
+        if (!PlayerPrefs.HasKey("PlayerLife"))
+        {
+            Debug.Log("hiding continue button");
+            // hide continue button
+            GameObject.Find("Button_Continue").SetActive(false);
+        }
+    }
     public void OnStartButtonClick()
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("PlayerLife", PlayerLife);
 
 
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen");
+    }
+
+    public void OnContinueButtonClick()
+    {
         UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen");
     }
 
