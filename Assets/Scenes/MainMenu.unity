@@ -799,6 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerLife: 200
+  shootCooldown: 1
 --- !u!4 &608504367
 Transform:
   m_ObjectHideFlags: 0

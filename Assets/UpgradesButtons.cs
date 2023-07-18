@@ -73,6 +73,9 @@ public class UpgradesButtons : MonoBehaviour
 
         DisableAllButtons();
         ToggleDoneButton(true);
+
+        // add shoot cooldown reduction
+        PlayerPrefs.SetFloat("shootCooldown", PlayerPrefs.GetFloat("shootCooldown") - extraShootCooldownReduction);
     }
 
     public void OnShootAmountButtonClick()
