@@ -50,6 +50,9 @@ public class UpgradesButtons : MonoBehaviour
         DisableAllButtons();
 
         ToggleDoneButton(true);
+
+        // add health
+        PlayerPrefs.SetInt("PlayerLife", PlayerPrefs.GetInt("PlayerLife") + extraHealth);
     }
 
     public void OnSpeedButtonClick()

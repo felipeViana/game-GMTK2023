@@ -13,14 +13,14 @@ public class PlayerHealth : MonoBehaviour
         life = PlayerPrefs.GetInt("PlayerLife");
 
         lifeText = GameObject.Find("PlayerLife");
-        lifeText.GetComponent<TMP_Text>().text = "Player Health: " + life.ToString();
+        lifeText.GetComponent<TMP_Text>().text = "Health: " + life.ToString() + " / " + PlayerPrefs.GetInt("PlayerLife");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        lifeText.GetComponent<TMP_Text>().text = "Player Health: " + life.ToString();
+        lifeText.GetComponent<TMP_Text>().text = "Health: " + life.ToString() + " / " + PlayerPrefs.GetInt("PlayerLife");
 
 
         // die if life < 0
