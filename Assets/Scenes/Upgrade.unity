@@ -928,9 +928,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1670559730}
-        m_TargetAssemblyTypeName: UpgradesDoneButton, Assembly-CSharp
-        m_MethodName: OnClick
+      - m_Target: {fileID: 1670559732}
+        m_TargetAssemblyTypeName: UpgradesButtons, Assembly-CSharp
+        m_MethodName: OnDoneButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1472,7 +1472,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1449090637}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1670559732}
+        m_TargetAssemblyTypeName: UpgradesButtons, Assembly-CSharp
+        m_MethodName: OnSpeedButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1449090637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1667,7 +1679,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1607435688}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1670559732}
+        m_TargetAssemblyTypeName: UpgradesButtons, Assembly-CSharp
+        m_MethodName: OnHealthButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1607435688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1715,7 +1739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1670559731}
-  - component: {fileID: 1670559730}
+  - component: {fileID: 1670559732}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -1723,18 +1747,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1670559730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670559729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2b13421c34532469f4ff797bbee025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1670559731
 Transform:
   m_ObjectHideFlags: 0
@@ -1750,6 +1762,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1670559732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670559729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888d00858408961489cb60024af5b7b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1731315488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,7 +2413,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2094407980}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1670559732}
+        m_TargetAssemblyTypeName: UpgradesButtons, Assembly-CSharp
+        m_MethodName: OnShootAmountButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2094407980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2511,7 +2547,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2115869409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1670559732}
+        m_TargetAssemblyTypeName: UpgradesButtons, Assembly-CSharp
+        m_MethodName: OnShootCooldownButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2115869409
 MonoBehaviour:
   m_ObjectHideFlags: 0
