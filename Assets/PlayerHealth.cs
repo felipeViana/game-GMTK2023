@@ -5,11 +5,13 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] int life = 200;
+    private int life;
     private GameObject lifeText;
 
     void Start()
     {
+        life = PlayerPrefs.GetInt("PlayerLife");
+
         lifeText = GameObject.Find("PlayerLife");
         lifeText.GetComponent<TMP_Text>().text = "Player Health: " + life.ToString();
 

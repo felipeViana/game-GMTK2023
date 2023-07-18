@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class UpgradesButtons : MonoBehaviour
 {
+    [SerializeField] int extraHealth = 20;
+    [SerializeField] float extraSpeed = 1f;
+    [SerializeField] float extraShootCooldownReduction = 0.1f;
+    [SerializeField] int extraShootAmount = 1;
     private void ToggleDoneButton(bool enabled)
     {
         GameObject doneButton = GameObject.Find("UpgradesDoneButton");

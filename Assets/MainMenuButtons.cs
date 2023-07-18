@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class MainMenuButtons : MonoBehaviour
 {
+    [SerializeField] int PlayerLife = 173;
     public void OnStartButtonClick()
     {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("PlayerLife", PlayerLife);
+
+
         UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen");
     }
 
