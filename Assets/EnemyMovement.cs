@@ -136,6 +136,8 @@ public class EnemyMovement : MonoBehaviour
                     hit = true;
                     var playerHealth = player.GetComponent<PlayerHealth>();
                     playerHealth.LoseLife(punchDamage);
+                    GetComponent<FMODUnity.StudioEventEmitter>().Play();
+                    GetComponent<FMODUnity.StudioEventEmitter>().Stop();
                 }
             }
 
